@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  @page { margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', Calibri, Arial, sans-serif;
+    color: #1c2430;
+    font-size: 10.2pt;
+    line-height: 1.45;
+    padding: 34px 42px;
+    max-width: 820px;
+  }
+  header { display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2.5px solid #1c2430; padding-bottom: 12px; margin-bottom: 14px; }
+  h1 { font-size: 21pt; letter-spacing: 0.4px; font-weight: 700; }
+  .headline { font-size: 10.5pt; color: #3d4a5c; margin-top: 2px; }
+  .contact { text-align: right; font-size: 9pt; color: #3d4a5c; line-height: 1.6; }
+  .contact a { color: #1c4f8c; text-decoration: none; }
+  h2 { font-size: 10.8pt; text-transform: uppercase; letter-spacing: 1.4px; color: #1c4f8c; margin: 15px 0 6px; border-bottom: 1px solid #d4dbe4; padding-bottom: 2px; }
+  .summary { font-size: 10pt; }
+  .item { margin-bottom: 9px; }
+  .item-head { display: flex; justify-content: space-between; align-items: baseline; }
+  .item-title { font-weight: 700; font-size: 10.8pt; }
+  .item-sub { font-size: 9.3pt; color: #3d4a5c; }
+  .item-date { font-size: 9pt; color: #5a6675; white-space: nowrap; }
+  ul { margin: 3px 0 0 16px; }
+  li { margin-bottom: 2.5px; }
+  .skills { display: flex; gap: 18px; }
+  .skill-col { flex: 1; }
+  .skill-col strong { display: block; font-size: 9.5pt; color: #3d4a5c; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 2px; }
+  .tech { font-size: 9.2pt; color: #2a3646; }
+  .links-line { font-size: 9.2pt; color: #2a3646; }
+  .links-line a { color: #1c4f8c; text-decoration: none; }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>Farhan Aziz Harahap</h1>
+    <div class="headline">Software Developer — Web Applications &amp; Python Automation</div>
+  </div>
+  <div class="contact">
+    Batam, Indonesia<br>
+    <a href="mailto:ggfarhan07@gmail.com">ggfarhan07@gmail.com</a><br>
+    <a href="https://github.com/sakeeeeeeee">github.com/sakeeeeeeee</a><br>
+    <a href="https://www.linkedin.com/in/farhan-aziz-harahap-728b421a5/">linkedin.com/in/farhan-aziz-harahap</a>
+  </div>
+</header>
+
+<p class="summary">Informatics student at Universitas Putera Batam who builds database-backed web applications and automation tools with a testing-first mindset — feature tests, continuous integration, and documented projects. Currently strengthening Swift fundamentals while preparing to bring this engineering rigor to Apple's ecosystem.</p>
+
+<h2>Projects</h2>
+
+<div class="item">
+  <div class="item-head">
+    <div><span class="item-title">Hotelaz — Hotel Management System</span> &nbsp;<span class="item-sub">Laravel · PHP · Tailwind CSS · MySQL · PHPUnit</span></div>
+    <span class="item-date">2025</span>
+  </div>
+  <ul>
+    <li>Built a full hotel-management web app: room browsing, reservations, payment-proof upload, email notifications, and an admin dashboard with revenue statistics.</li>
+    <li>Designed overlapping-date availability logic that prevents double bookings across each room's unit quantity.</li>
+    <li>Wrote 18 feature tests (43 assertions) covering reservations, authorization, and email flows; wired to GitHub Actions CI.</li>
+  </ul>
+</div>
+
+<div class="item">
+  <div class="item-head">
+    <div><span class="item-title">XAUUSD ICT Trading Signal Bot</span> &nbsp;<span class="item-sub">Python · MetaTrader 5 · SQLite · Streamlit · Telegram</span></div>
+    <span class="item-date">2026</span>
+  </div>
+  <ul>
+    <li>Implemented a rule-based trading-signal engine (ICT Silver Bullet: FVG detection, session filters, confluence scoring) integrated with MetaTrader 5.</li>
+    <li>Designed a dual-tier architecture separating the real-time scanning engine from an asynchronous Telegram interface.</li>
+    <li>Built risk management with ATR-based stop loss and R:R validation, plus a walk-forward backtest engine to counter overfitting.</li>
+    <li>Delivered a Streamlit analytics dashboard tracking historical win rate from SQLite trade records.</li>
+  </ul>
+</div>
+
+<div class="item">
+  <div class="item-head">
+    <div><span class="item-title">Twitter/X Keyword Scraper</span> &nbsp;<span class="item-sub">Python · Twikit</span></div>
+    <span class="item-date">2026</span>
+  </div>
+  <ul>
+    <li>Built a keyword-based post collector with automatic cookie-based account rotation to survive rate limits; exports structured CSV/JSON.</li>
+  </ul>
+</div>
+
+<div class="item">
+  <div class="item-head">
+    <div><span class="item-title">Form PHPMailer — Contact Form with Email Delivery</span> &nbsp;<span class="item-sub">PHP · PHPMailer · MySQL</span></div>
+    <span class="item-date">2025</span>
+  </div>
+  <ul>
+    <li>Built a validated contact form storing messages in MySQL with SMTP email delivery via environment-based credentials (no secrets in source).</li>
+  </ul>
+</div>
+
+<h2>Education</h2>
+<div class="item">
+  <div class="item-head">
+    <div><span class="item-title">Universitas Putera Batam</span> &nbsp;<span class="item-sub">Informatics (S1)</span></div>
+    <span class="item-date">2023 — present</span>
+  </div>
+</div>
+
+<h2>Skills</h2>
+<div class="skills">
+  <div class="skill-col">
+    <strong>Languages</strong>
+    <span class="tech">PHP, Python, SQL, JavaScript, Swift (basic)</span>
+  </div>
+  <div class="skill-col">
+    <strong>Frameworks &amp; Libraries</strong>
+    <span class="tech">Laravel, Tailwind CSS, Streamlit, Twikit</span>
+  </div>
+  <div class="skill-col">
+    <strong>Tools &amp; Practices</strong>
+    <span class="tech">Git &amp; GitHub, GitHub Actions (CI), PHPUnit, Vite, testing-first development</span>
+  </div>
+</div>
+
+<h2>Currently Learning</h2>
+<p class="links-line">Swift fundamentals through online playgrounds — porting object-oriented concepts from my PHP/Python projects · Preparing for <strong>Apple Developer Academy @ Infinite Learning, Batam (Cohort 2027)</strong></p>
+
+<h2>Portfolio</h2>
+<p class="links-line">Case studies with problem, process, and outcomes for every project above: <a href="https://github.com/sakeeeeeeee/portfolio">website</a> · <a href="https://github.com/sakeeeeeeee">GitHub profile</a></p>
+
+</body>
+</html>
