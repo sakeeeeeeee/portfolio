@@ -28,7 +28,7 @@ export const projects: Project[] = [
     future: 'Add a payment gateway integration (the current flow records payment proofs manually), a calendar view for admins, and rate-based pricing on peak dates.',
     screenshots: [
       '/screenshots/hotelaz-home.jpg',
-      '/screenshots/hotelaz-rooms.jpg'
+      '/screenshots/hotelaz-admin.jpg'
     ]
   },
   {
