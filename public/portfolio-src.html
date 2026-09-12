@@ -1,192 +1,212 @@
 <!DOCTYPE html><html><head><meta charset="utf-8"><style>
-@page { size: A4; margin: 0; }
+@page { size: A4; margin: 13mm 13mm 15mm; }
 * { margin:0; padding:0; box-sizing:border-box; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
-body { font-family:'Segoe UI', Arial, sans-serif; color:#1a2332; font-size:10.5pt; line-height:1.5; }
-.page { width:210mm; min-height:297mm; padding:16mm 16mm; page-break-after:always; position:relative; }
-.page:last-child { page-break-after:auto; }
-.page-num { position:absolute; bottom:8mm; right:16mm; font-size:8pt; color:#8a94a6; }
+body { font-family:'Segoe UI', Arial, sans-serif; color:#22304a; font-size:9pt; line-height:1.45; }
+.newpage { break-before: page; }
+.kicker { font-size:7.5pt; letter-spacing:2.2pt; color:#0d9488; font-weight:800; margin-bottom:1.5mm; }
+h2.sec { font-size:17pt; color:#0e1a2b; letter-spacing:-0.4pt; margin-bottom:5mm; }
+h2.sec span { color:#2dd4a7; }
+.lead { font-size:10pt; color:#3c4c68; }
+.card { background:#f5f8fb; border:1px solid #e3eaf2; border-radius:2.5mm; padding:3.5mm 4.5mm; }
+.card h4 { font-size:7pt; letter-spacing:1.8pt; color:#0d9488; font-weight:800; margin-bottom:1.2mm; }
+.card p { color:#3c4c68; font-size:8.8pt; }
+.row2 { display:flex; gap:3mm; margin-top:3mm; }
+.row2 .card { flex:1; }
+.foot { margin-top:4mm; padding-top:2.5mm; border-top:1px solid #e3eaf2; font-size:8pt; color:#8a97ab; display:flex; justify-content:space-between; }
 
-/* cover */
-.cover { background:#0f172a; color:#e8edf5; display:flex; flex-direction:column; }
-.cover .top { margin-top:40mm; }
-.cover h1 { font-size:30pt; font-weight:700; letter-spacing:-0.5pt; line-height:1.15; }
-.cover h1 span { color:#6ee7c8; }
-.cover .role { font-size:13pt; color:#aab6c8; margin-top:6mm; }
-.cover .contact { margin-top:auto; border-top:1px solid #2a3a55; padding-top:6mm; font-size:9.5pt; color:#aab6c8; }
-.cover .contact b { color:#e8edf5; font-weight:600; }
-.cover .contact div { margin:1.5mm 0; }
-.badge { display:inline-block; background:#6ee7c8; color:#0f172a; font-weight:700; font-size:8.5pt; letter-spacing:1.5pt; padding:2mm 5mm; border-radius:2mm; margin-bottom:10mm; }
-
-/* section headers */
-h2.sec { font-size:15pt; color:#0f172a; border-bottom:2.5px solid #6ee7c8; padding-bottom:2mm; margin-bottom:6mm; letter-spacing:-0.3pt; }
-h2.sec small { font-size:9pt; color:#8a94a6; font-weight:400; letter-spacing:2pt; display:block; margin-bottom:1mm; }
+/* cover: fits exactly one page */
+.cover { height: 262mm; background:#0e1a2b; color:#eef2f8; border-radius:4mm; padding:18mm 16mm; display:flex; flex-direction:column; overflow:hidden; }
+.cover .badge { align-self:flex-start; background:#2dd4a7; color:#0e1a2b; font-weight:800; font-size:7.5pt; letter-spacing:2.5pt; padding:1.8mm 4.5mm; border-radius:10mm; }
+.cover h1 { font-size:31pt; font-weight:700; line-height:1.1; letter-spacing:-0.8pt; margin-top:30mm; }
+.cover h1 em { color:#2dd4a7; font-style:normal; }
+.cover .role { font-size:11.5pt; color:#9fb0c7; margin-top:5mm; line-height:1.5; }
+.cover .rule { width:24mm; height:1.2mm; background:#2dd4a7; border-radius:1mm; margin:10mm 0; }
+.cover .summary { font-size:10pt; color:#c6d2e2; max-width:150mm; line-height:1.65; }
+.cover .contact { margin-top:auto; border-top:1px solid #2c3e58; padding-top:6mm; display:flex; flex-wrap:wrap; }
+.cover .contact div { width:50%; padding:1.4mm 0; font-size:9pt; color:#9fb0c7; }
+.cover .contact b { color:#eef2f8; font-weight:600; display:block; font-size:7.5pt; letter-spacing:1.5pt; }
 
 /* about */
-.about p { margin-bottom:3.5mm; color:#39445a; }
-.about .hl { background:#e6fbf4; border-left:3px solid #6ee7c8; padding:3.5mm 5mm; border-radius:0 2mm 2mm 0; }
+.hl { border-left:1.2mm solid #2dd4a7; padding:1mm 0 1mm 5mm; margin-bottom:4.5mm; }
+.hl p { font-size:10.5pt; color:#22304a; line-height:1.6; }
+.sk { display:flex; gap:3mm; margin:4mm 0 7mm; }
+.sk .card { flex:1; }
+.sk b { display:block; color:#0e1a2b; margin-bottom:1mm; font-size:9pt; }
+.tl { border-left:1px solid #d7e0ec; margin-left:3.5mm; padding-left:6mm; }
+.tl div { position:relative; padding-bottom:5mm; }
+.tl div::before { content:''; position:absolute; left:-8.1mm; top:1.4mm; width:2.6mm; height:2.6mm; border-radius:50%; background:#2dd4a7; }
+.tl b { color:#0e1a2b; }
+.tl .yr { font-size:8.5pt; font-weight:800; color:#0d9488; letter-spacing:1pt; }
+.tl p { color:#3c4c68; }
 
-/* project blocks */
-.proj { page-break-inside:avoid; margin-bottom:0; }
-.proj-head { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:1.5mm; }
-.proj-head h3 { font-size:13pt; color:#0f172a; }
-.proj-head .year { font-size:9pt; color:#8a94a6; font-weight:600; }
-.eyebrow { font-size:8.5pt; letter-spacing:1.2pt; color:#0d9488; font-weight:700; margin-bottom:2.5mm; }
-.proj p.desc { color:#39445a; margin-bottom:3mm; }
-.tags { margin-bottom:4mm; }
-.tag { display:inline-block; background:#eef2f8; color:#334760; border-radius:1.5mm; padding:0.8mm 3mm; font-size:8pt; margin-right:1.5mm; font-weight:600; }
-.shot { width:100%; border:1px solid #dfe5ee; border-radius:2mm; margin:2mm 0 4mm; }
-.shots2 { display:flex; gap:4mm; margin:2mm 0 4mm; }
-.shots2 .shot { width:calc(50% - 2mm); }
-.case { background:#f7f9fc; border:1px solid #e4e9f2; border-radius:2mm; padding:5mm 6mm; margin-bottom:3mm; }
-.case h4 { font-size:8.5pt; letter-spacing:1.2pt; color:#0d9488; margin-bottom:1.5mm; }
-.case p { color:#39445a; }
-.case-grid { display:flex; gap:4mm; }
-.case-grid .case { flex:1; }
-.proj + .proj { margin-top:8mm; }
-
-/* skills & timeline & achievements */
-.skills-grid { display:flex; gap:5mm; margin-bottom:5mm; }
-.skill-box { flex:1; background:#f7f9fc; border:1px solid #e4e9f2; border-radius:2mm; padding:4mm 5mm; }
-.skill-box h4 { font-size:9.5pt; color:#0f172a; margin-bottom:2.5mm; }
-.skill-box p { color:#39445a; font-size:9.5pt; }
-.tl-item { display:flex; gap:5mm; margin-bottom:4.5mm; page-break-inside:avoid; }
-.tl-year { min-width:14mm; font-weight:700; color:#0d9488; font-size:11pt; }
-.tl-item b { color:#0f172a; }
-.tl-item p { color:#39445a; margin-top:0.5mm; }
-.ach { border-left:3px solid #6ee7c8; padding:2mm 0 2mm 5mm; margin-bottom:4mm; page-break-inside:avoid; }
-.ach b { color:#0f172a; }
-.ach .meta { font-size:9pt; color:#8a94a6; margin:0.5mm 0; }
-.ach p { color:#39445a; }
-
-/* links footer */
-.links { display:flex; gap:8mm; margin-top:4mm; }
-.links div { background:#f7f9fc; border:1px solid #e4e9f2; border-radius:2mm; padding:3mm 5mm; flex:1; font-size:9.5pt; color:#334760; }
-.links b { color:#0f172a; display:block; margin-bottom:0.5mm; }
+/* project */
+.p-head { display:flex; justify-content:space-between; align-items:baseline; }
+.p-head h2 { font-size:15.5pt; color:#0e1a2b; letter-spacing:-0.3pt; }
+.p-head .yr { font-size:9.5pt; color:#8a97ab; font-weight:700; }
+.shot { display:block; width:100%; height:74mm; object-fit:cover; object-position:top; border:1px solid #e0e7f0; border-radius:2.5mm; margin:3.5mm 0; }
+.shot2 { display:flex; gap:3mm; margin:3.5mm 0; }
+.shot2 img { width:calc(50% - 1.5mm); height:64mm; object-fit:cover; object-position:top; border:1px solid #e0e7f0; border-radius:2.5mm; }
+.tags { margin:2.5mm 0 0; }
+.tight .shot { height:64mm; }
+.tight .row2 { margin-top:2.4mm; }
+.tight .card { padding:3mm 4mm; }
+.tag { display:inline-block; background:#eaf6f1; color:#0b6e5d; border-radius:1.5mm; padding:0.8mm 3mm; font-size:8pt; font-weight:700; margin:0 1.2mm 1.2mm 0; }
 </style></head><body>
 
-<!-- PAGE 1: COVER -->
-<div class="page cover">
-  <div class="top">
-    <div class="badge">PORTFOLIO</div>
-    <h1>Farhan Aziz<br>Harahap<span>.</span></h1>
-    <div class="role">Software Developer — Web Applications &amp; Python Automation</div>
-  </div>
+<section class="cover">
+  <div class="badge">PORTFOLIO — 2026</div>
+  <h1>Farhan Aziz<br>Harahap<em>.</em></h1>
+  <div class="role">Software Developer — Web Applications<br>&amp; Python Automation</div>
+  <div class="rule"></div>
+  <div class="summary">Informatics student at Universitas Putera Batam. I build database-backed web apps and automation tools — tested, versioned, and continuously integrated. Four selected projects inside, with full case studies.</div>
   <div class="contact">
-    <div><b>Email</b> &nbsp;ggfarhan07@gmail.com</div>
-    <div><b>GitHub</b> &nbsp;github.com/sakeeeeeeee</div>
-    <div><b>LinkedIn</b> &nbsp;linkedin.com/in/farhan-aziz-harahap-728b421a5</div>
-    <div><b>Portfolio site</b> &nbsp;farhan-aziz-harahap.vercel.app</div>
+    <div><b>EMAIL</b>ggfarhan07@gmail.com</div>
+    <div><b>GITHUB</b>github.com/sakeeeeeeee</div>
+    <div><b>LINKEDIN</b>linkedin.com/in/farhan-aziz-harahap-728b421a5</div>
+    <div><b>PORTFOLIO SITE</b>farhan-aziz-harahap.vercel.app</div>
   </div>
-</div>
+</section>
 
-<!-- PAGE 2: ABOUT + SKILLS -->
-<div class="page">
-  <h2 class="sec"><small>01</small>About Me</h2>
-  <div class="about">
-    <div class="hl"><p>I'm an informatics student at Universitas Putera Batam who enjoys turning complex problems into simple, thoughtful products — from Laravel web apps to Python automation. I care about doing things properly: tested, versioned, and continuously integrated.</p></div>
-    <p style="margin-top:4mm">My journey started with a simple curiosity about how things work. Today I build database-backed web applications with Laravel and automation tools with Python. My biggest project, <b>Hotelaz</b>, is a complete hotel management system covered by 18 automated feature tests running on CI.</p>
-    <p>I'm currently deepening my testing practice and preparing for the Apple Developer Academy @ Infinite Learning (Cohort 2027) — where I plan to bring the same engineering discipline into building apps for Apple platforms.</p>
+<section class="newpage">
+  <div class="kicker">ABOUT ME</div>
+  <h2 class="sec">Turning ideas into <span>useful software.</span></h2>
+  <div class="hl"><p>I'm an informatics student who enjoys turning complex problems into simple, thoughtful products — from Laravel web apps to Python automation. I care about doing things properly: tested, versioned, and continuously integrated.</p></div>
+  <p class="lead">My biggest project, <b>Hotelaz</b>, is a complete hotel management system covered by 18 automated feature tests running on CI. I'm now preparing for the Apple Developer Academy @ Infinite Learning (Cohort 2027), where I plan to bring the same engineering discipline to Apple platforms.</p>
+  <div class="kicker" style="margin-top:8mm">SKILLS &amp; TOOLS</div>
+  <div class="sk">
+    <div class="card"><b>Programming</b>PHP · Python · JavaScript · SQL</div>
+    <div class="card"><b>Web Development</b>Laravel · React · Tailwind CSS · HTML/CSS</div>
+    <div class="card"><b>Tools &amp; Practices</b>Git &amp; GitHub · CI (GitHub Actions) · PHPUnit · Vite</div>
   </div>
-  <h2 class="sec" style="margin-top:8mm"><small>02</small>Skills &amp; Tools</h2>
-  <div class="skills-grid">
-    <div class="skill-box"><h4>Programming</h4><p>PHP · Python · JavaScript · SQL</p></div>
-    <div class="skill-box"><h4>Web Development</h4><p>Laravel · React · HTML · CSS · Tailwind CSS</p></div>
-    <div class="skill-box"><h4>Tools &amp; Practices</h4><p>Git &amp; GitHub · GitHub Actions (CI) · PHPUnit · Vite · Streamlit</p></div>
+  <div class="kicker">JOURNEY</div>
+  <div class="tl">
+    <div><span class="yr">2023</span><br><b>Started learning programming</b><p>Began my informatics degree at Universitas Putera Batam and wrote my first HTML pages and simple programs.</p></div>
+    <div><span class="yr">2025</span><br><b>Built my first serious projects</b><p>Shipped my first database-backed web apps in PHP, then moved to Laravel with Hotelaz — a complete hotel management system with tests and CI.</p></div>
+    <div style="padding-bottom:0"><span class="yr">2026</span><br><b>Automation, bots &amp; testing</b><p>Built a Python trading-signal bot with MetaTrader 5 and Telegram, plus data tooling. Now focused on testing, CI, and software that holds up under real use.</p></div>
   </div>
-  <h2 class="sec" style="margin-top:8mm"><small>03</small>Journey</h2>
-  <div class="tl-item"><div class="tl-year">2023</div><div><b>Started learning programming</b><p>Began my informatics degree at Universitas Putera Batam and wrote my first HTML pages and simple programs.</p></div></div>
-  <div class="tl-item"><div class="tl-year">2025</div><div><b>Built my first serious projects</b><p>Shipped my first database-backed web apps in PHP, then moved to Laravel with Hotelaz — a complete hotel management system with tests and CI.</p></div></div>
-  <div class="tl-item"><div class="tl-year">2026</div><div><b>Automation, bots &amp; testing</b><p>Built a Python trading-signal bot with MetaTrader 5 and Telegram, plus data tooling. Now focused on testing, CI, and writing software that holds up under real use.</p></div></div>
-  <div class="page-num">2</div>
-</div>
+</section>
 
-<!-- PAGE 3+: PROJECTS -->
-<div class="page">
-  <h2 class="sec"><small>04</small>Selected Projects <small style="display:inline;letter-spacing:0">— full case studies at farhan-aziz-harahap.vercel.app</small></h2>
-  
-<div class="proj">
-  <div class="proj-head"><h3>Hotelaz — Hotel Management System</h3><span class="year">2025</span></div>
-  <div class="eyebrow">FEATURED CASE STUDY</div>
-  <p class="desc">A full-featured hotel management web app: room browsing, reservations with overbooking protection, payment-proof upload, email notifications, and an admin dashboard with revenue statistics.</p>
-  <div class="tags"><span class="tag">Laravel</span><span class="tag">PHP</span><span class="tag">Blade</span><span class="tag">Tailwind CSS</span><span class="tag">MySQL</span></div>
-  <div class="shots2"><img class="shot" src="file:///C:/Users/Hp/Documents/UPB/vscode/porto1/public/screenshots/hotelaz-home.jpg"><img class="shot" src="file:///C:/Users/Hp/Documents/UPB/vscode/porto1/public/screenshots/hotelaz-admin.jpg"></div>
-  <div class="case"><h4>PROBLEM</h4><p>Small hotel operations rely on scattered tools — paper records or spreadsheets — to manage rooms, bookings, and payments. This causes double-bookings, lost reservations, and no clear picture of revenue.</p></div>
-  <div class="case-grid">
-    <div class="case"><h4>ROLE</h4><p>Solo developer — database design, backend, frontend UI, and deployment setup.</p></div>
-    <div class="case"><h4>GITHUB</h4><p>sakeeeeeeee/hotelaz</p></div>
+
+<section class="newpage">
+  <div class="kicker">FEATURED CASE STUDY · WEB · 2025</div>
+  <div class="p-head"><h2>Hotelaz — Hotel Management System</h2><span class="yr">Laravel</span></div>
+  <p class="lead" style="margin-top:2mm">A full-featured hotel management web app: room browsing, reservations with overbooking protection, payment-proof upload, email notifications, and an admin dashboard with revenue statistics.</p>
+  <div class="tags"><span class="tag">PHP</span><span class="tag">Blade</span><span class="tag">Tailwind CSS</span><span class="tag">MySQL</span></div>
+  <div class="shot2"><img src="file:///C:/Users/Hp/Documents/UPB/vscode/porto1/public/screenshots/hotelaz-home.jpg"><img src="file:///C:/Users/Hp/Documents/UPB/vscode/porto1/public/screenshots/hotelaz-admin.jpg"></div>
+  <div class="row2">
+    <div class="card"><h4>PROBLEM</h4><p>Small hotel operations rely on scattered tools — paper records or spreadsheets — to manage rooms, bookings, and payments. This causes double-bookings, lost reservations, and no clear picture of revenue.</p></div>
+    <div class="card"><h4>MY ROLE</h4><p>Solo developer — database design, backend, frontend UI, and deployment setup.</p></div>
   </div>
-  <div class="case"><h4>APPROACH &amp; SOLUTION</h4><p>Implemented an overlapping date-range query compared against each room&#x27;s unit quantity — a booking is only accepted if active (non-cancelled) reservations for that range stay below the room count. Each room type tracks individual physical units (RoomUnit) with their own status. SMTP credentials and uploads are handled via validated storage and environment config.</p></div>
-  <div class="case"><h4>RESULT</h4><p>18 automated tests (43 assertions) covering the reservation flow, availability logic, authorization, and email delivery — all passing on CI (GitHub Actions). The app sends confirmation emails with a unique booking reference (resi) generated on confirmation.</p></div>
-  <div class="case-grid">
-    <div class="case"><h4>KEY LEARNING</h4><p>Designing correctness-critical queries (overlap detection), structuring a Laravel app with middleware-based role separation, policies for resource ownership, and testing business rules instead of just CRUD.</p></div>
-    <div class="case"><h4>NEXT STEPS</h4><p>Add a payment gateway integration (the current flow records payment proofs manually), a calendar view for admins, and rate-based pricing on peak dates.</p></div>
+  <div class="row2">
+    <div class="card"><h4>APPROACH</h4><p>Started with the data model (rooms, room units, reservations, testimonials, galleries), then built the guest booking flow, then the admin panel. Iterated with feature tests after the core worked.</p></div>
+    <div class="card"><h4>KEY CHALLENGE</h4><p>The hardest part was availability logic: preventing overbooking when multiple reservations overlap partially with the requested date range. Also handling file uploads securely and separating guest/admin authorization.</p></div>
   </div>
-</div>
-<div class="proj">
-  <div class="proj-head"><h3>XAUUSD ICT Trading Signal Bot</h3><span class="year">2026</span></div>
-  <div class="eyebrow">ALGORITHMIC TRADING SYSTEM</div>
-  <p class="desc">A rule-based trading signal bot for Gold (XAUUSD) implementing the ICT Silver Bullet strategy: FVG detection, session filters, smart risk management, Telegram integration, and an analytics dashboard.</p>
-  <div class="tags"><span class="tag">Python</span><span class="tag">MetaTrader 5</span><span class="tag">SQLite</span><span class="tag">Streamlit</span><span class="tag">Telegram Bot</span></div>
+  <div class="row2">
+    <div class="card"><h4>SOLUTION</h4><p>Implemented an overlapping date-range query compared against each room&#x27;s unit quantity — a booking is only accepted if active (non-cancelled) reservations for that range stay below the room count. Each room type tracks individual physical units (RoomUnit) with their own status. SMTP credentials and uploads are handled via validated storage and environment config.</p></div>
+    <div class="card"><h4>RESULT</h4><p>18 automated tests (43 assertions) covering the reservation flow, availability logic, authorization, and email delivery — all passing on CI (GitHub Actions). The app sends confirmation emails with a unique booking reference (resi) generated on confirmation.</p></div>
+  </div>
+  <div class="row2">
+    <div class="card"><h4>WHAT I LEARNED</h4><p>Designing correctness-critical queries (overlap detection), structuring a Laravel app with middleware-based role separation, policies for resource ownership, and testing business rules instead of just CRUD.</p></div>
+    <div class="card"><h4>NEXT STEPS</h4><p>Add a payment gateway integration (the current flow records payment proofs manually), a calendar view for admins, and rate-based pricing on peak dates.</p></div>
+  </div>
+  <div class="foot"><span>github.com/sakeeeeeeee/hotelaz</span><span>farhan-aziz-harahap.vercel.app</span></div>
+</section>
+
+<section class="newpage tight">
+  <div class="kicker">ALGORITHMIC TRADING SYSTEM · AI · 2026</div>
+  <div class="p-head"><h2>XAUUSD ICT Trading Signal Bot</h2><span class="yr">Python</span></div>
+  <p class="lead" style="margin-top:2mm">A rule-based trading signal bot for Gold (XAUUSD) implementing the ICT Silver Bullet strategy: FVG detection, session filters, smart risk management, Telegram integration, and an analytics dashboard.</p>
+  <div class="tags"><span class="tag">MetaTrader 5</span><span class="tag">SQLite</span><span class="tag">Streamlit</span><span class="tag">Telegram Bot</span></div>
   <img class="shot" src="file:///C:/Users/Hp/Documents/UPB/vscode/porto1/public/screenshots/ictbot-dashboard.jpg">
-  <div class="case"><h4>PROBLEM</h4><p>Manual intraday traders miss setups because monitoring charts during London and New York sessions is impractical, and emotions break consistency. Existing bots are black boxes with no risk validation.</p></div>
-  <div class="case-grid">
-    <div class="case"><h4>ROLE</h4><p>Solo developer — strategy engine, MT5 integration, risk manager, bot infrastructure, and dashboard.</p></div>
-    <div class="case"><h4>GITHUB</h4><p>sakeeeeeeee/xauusd-ict-bot</p></div>
+  <div class="row2">
+    <div class="card"><h4>PROBLEM</h4><p>Manual intraday traders miss setups because monitoring charts during London and New York sessions is impractical, and emotions break consistency. Existing bots are black boxes with no risk validation.</p></div>
+    <div class="card"><h4>MY ROLE</h4><p>Solo developer — strategy engine, MT5 integration, risk manager, bot infrastructure, and dashboard.</p></div>
   </div>
-  <div class="case"><h4>APPROACH &amp; SOLUTION</h4><p>Built a Dual-Tier architecture: the core engine runs uninterrupted on the main thread (scanning, FVG detection, SQLite persistence) while the Telegram interface answers commands asynchronously in a background thread. Risk manager computes ATR-based stop loss, enforces R:R bounds, and validates min/max risk. A backtest engine with walk-forward train/test splits and an offline Gemini-analysis script (weekly, manual) complete the loop — LLMs are explicitly excluded from live execution.</p></div>
-  <div class="case"><h4>RESULT</h4><p>A complete pipeline: MT5 data → signal detection → risk validation → Telegram broadcast with charts → outcome tracking in SQLite → Streamlit analytics showing historical win rate. Covered by unit tests for risk and analysis modules.</p></div>
-  <div class="case-grid">
-    <div class="case"><h4>KEY LEARNING</h4><p>Translating a discretionary trading methodology into deterministic code, walk-forward testing to fight overfitting, threading and async design for responsive bots, and separating measurable evaluation from execution.</p></div>
-    <div class="case"><h4>NEXT STEPS</h4><p>Expand to multi-symbol scanning, add proper position-sizing from account equity, and publish the backtest reports as static pages.</p></div>
+  <div class="row2">
+    <div class="card"><h4>APPROACH</h4><p>Studied the ICT Silver Bullet methodology first, translated it into deterministic rules (H4 bias → FVG retest → confluence scoring), then layered session filters, an anti-overfitting profile, and walk-forward backtesting to validate parameters before going live.</p></div>
+    <div class="card"><h4>KEY CHALLENGE</h4><p>Preventing overfitting was central: a strategy tuned to historical data fails live. Also, running the scan engine and the interactive Telegram interface in one process without blocking each other.</p></div>
   </div>
-</div>
-  <div class="page-num">3</div>
-</div>
+  <div class="row2">
+    <div class="card"><h4>SOLUTION</h4><p>Built a Dual-Tier architecture: the core engine runs uninterrupted on the main thread (scanning, FVG detection, SQLite persistence) while the Telegram interface answers commands asynchronously in a background thread. Risk manager computes ATR-based stop loss, enforces R:R bounds, and validates min/max risk. A backtest engine with walk-forward train/test splits and an offline Gemini-analysis script (weekly, manual) complete the loop — LLMs are explicitly excluded from live execution.</p></div>
+    <div class="card"><h4>RESULT</h4><p>A complete pipeline: MT5 data → signal detection → risk validation → Telegram broadcast with charts → outcome tracking in SQLite → Streamlit analytics showing historical win rate. Covered by unit tests for risk and analysis modules.</p></div>
+  </div>
+  <div class="row2">
+    <div class="card"><h4>WHAT I LEARNED</h4><p>Translating a discretionary trading methodology into deterministic code, walk-forward testing to fight overfitting, threading and async design for responsive bots, and separating measurable evaluation from execution.</p></div>
+    <div class="card"><h4>NEXT STEPS</h4><p>Expand to multi-symbol scanning, add proper position-sizing from account equity, and publish the backtest reports as static pages.</p></div>
+  </div>
+  <div class="foot"><span>github.com/sakeeeeeeee/xauusd-ict-bot</span><span>farhan-aziz-harahap.vercel.app</span></div>
+</section>
 
-<div class="page">
-  <h2 class="sec"><small>04</small>Selected Projects <small style="display:inline;letter-spacing:0">(continued)</small></h2>
-  
-<div class="proj">
-  <div class="proj-head"><h3>Twitter/X Keyword Scraper</h3><span class="year">2026</span></div>
-  <div class="eyebrow">DATA &AMP; AUTOMATION</div>
-  <p class="desc">A Python utility that collects posts matching a keyword with cookie-based account rotation, exporting results to CSV and JSON for analysis.</p>
-  <div class="tags"><span class="tag">Python</span><span class="tag">Twikit</span><span class="tag">CSV</span><span class="tag">JSON</span></div>
+<section class="newpage">
+  <div class="kicker">DATA &AMP; AUTOMATION · RESEARCH · 2026</div>
+  <div class="p-head"><h2>Twitter/X Keyword Scraper</h2><span class="yr">Python</span></div>
+  <p class="lead" style="margin-top:2mm">A Python utility that collects posts matching a keyword with cookie-based account rotation, exporting results to CSV and JSON for analysis.</p>
+  <div class="tags"><span class="tag">Twikit</span><span class="tag">CSV</span><span class="tag">JSON</span></div>
   <img class="shot" src="file:///C:/Users/Hp/Documents/UPB/vscode/porto1/public/screenshots/scrapex-terminal.jpg">
-  <div class="case"><h4>PROBLEM</h4><p>Researchers and analysts need bulk access to public posts matching specific keywords, but exporting them manually is slow and the official API is costly.</p></div>
-  <div class="case-grid">
-    <div class="case"><h4>ROLE</h4><p>Solo developer — design, implementation, and testing.</p></div>
-    <div class="case"><h4>GITHUB</h4><p>sakeeeeeeee/scrape_x</p></div>
+  <div class="row2">
+    <div class="card"><h4>PROBLEM</h4><p>Researchers and analysts need bulk access to public posts matching specific keywords, but exporting them manually is slow and the official API is costly.</p></div>
+    <div class="card"><h4>MY ROLE</h4><p>Solo developer — design, implementation, and testing.</p></div>
   </div>
-  <div class="case"><h4>APPROACH &amp; SOLUTION</h4><p>Implemented automatic cookie-based account rotation — when one session hits a limit, the scraper transparently switches to the next account and continues. Results are deduplicated and exported to both CSV and JSON.</p></div>
-  <div class="case"><h4>RESULT</h4><p>A working command-line tool that collects keyword-matched posts continuously without manual intervention, used for personal research datasets.</p></div>
-  <div class="case-grid">
-    <div class="case"><h4>KEY LEARNING</h4><p>Practical web-data ethics and rate-limit handling, session management, and designing for failure (resumable runs, structured logging).</p></div>
-    <div class="case"><h4>NEXT STEPS</h4><p>Add keyword scheduling, media download support, and a simple summary report of collection statistics.</p></div>
+  <div class="row2">
+    <div class="card"><h4>APPROACH</h4><p>Prototyped with the Twikit library against a single account, then added rotation across multiple cookie sessions to survive rate limits, and standardized output formats.</p></div>
+    <div class="card"><h4>KEY CHALLENGE</h4><p>Rate limiting and session invalidation: long runs would die mid-collection. Handling pagination and duplicate posts across pages also needed care.</p></div>
   </div>
-</div>
-<div class="proj">
-  <div class="proj-head"><h3>CRUD Form Sekolah</h3><span class="year">2025</span></div>
-  <div class="eyebrow">LEARNING IN PUBLIC</div>
-  <p class="desc">A PHP CRUD application for managing school data — the project where I first connected forms, databases, and server-side validation into one working system.</p>
-  <div class="tags"><span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">CRUD</span></div>
+  <div class="row2">
+    <div class="card"><h4>SOLUTION</h4><p>Implemented automatic cookie-based account rotation — when one session hits a limit, the scraper transparently switches to the next account and continues. Results are deduplicated and exported to both CSV and JSON.</p></div>
+    <div class="card"><h4>RESULT</h4><p>A working command-line tool that collects keyword-matched posts continuously without manual intervention, used for personal research datasets.</p></div>
+  </div>
+  <div class="row2">
+    <div class="card"><h4>WHAT I LEARNED</h4><p>Practical web-data ethics and rate-limit handling, session management, and designing for failure (resumable runs, structured logging).</p></div>
+    <div class="card"><h4>NEXT STEPS</h4><p>Add keyword scheduling, media download support, and a simple summary report of collection statistics.</p></div>
+  </div>
+  <div class="foot"><span>github.com/sakeeeeeeee/scrape_x</span><span>farhan-aziz-harahap.vercel.app</span></div>
+</section>
+
+<section class="newpage">
+  <div class="kicker">LEARNING IN PUBLIC · WEB · 2025</div>
+  <div class="p-head"><h2>CRUD Form Sekolah</h2><span class="yr">PHP</span></div>
+  <p class="lead" style="margin-top:2mm">A PHP CRUD application for managing school data — the project where I first connected forms, databases, and server-side validation into one working system.</p>
+  <div class="tags"><span class="tag">MySQL</span><span class="tag">CRUD</span></div>
   <img class="shot" src="file:///C:/Users/Hp/Documents/UPB/vscode/porto1/public/screenshots/crud-form.jpg">
-  <div class="case"><h4>PROBLEM</h4><p>School administrative data (students, classes, records) is often managed on paper, with no validation and no history.</p></div>
-  <div class="case-grid">
-    <div class="case"><h4>ROLE</h4><p>Solo developer — full stack, from schema to UI.</p></div>
-    <div class="case"><h4>GITHUB</h4><p>sakeeeeeeee/CRUD-form-sekolah</p></div>
+  <div class="row2">
+    <div class="card"><h4>PROBLEM</h4><p>School administrative data (students, classes, records) is often managed on paper, with no validation and no history.</p></div>
+    <div class="card"><h4>MY ROLE</h4><p>Solo developer — full stack, from schema to UI.</p></div>
   </div>
-  <div class="case"><h4>APPROACH &amp; SOLUTION</h4><p>A straightforward PHP + MySQL application with prepared statements, server-side validation on every write operation, and clean feedback for each action.</p></div>
-  <div class="case"><h4>RESULT</h4><p>A functional data-management app that became the foundation for my later Laravel work — the same concepts, now with a framework.</p></div>
-  <div class="case-grid">
-    <div class="case"><h4>KEY LEARNING</h4><p>Core CRUD mechanics, SQL injection awareness (prepared statements), and why server-side validation is non-negotiable.</p></div>
-    <div class="case"><h4>NEXT STEPS</h4><p>Rebuild it in Laravel as a comparison exercise to show the same problem solved at a higher abstraction level.</p></div>
+  <div class="row2">
+    <div class="card"><h4>APPROACH</h4><p>Designed the schema, built each CRUD operation one at a time, and hardened the forms with server-side validation after the happy paths worked.</p></div>
+    <div class="card"><h4>KEY CHALLENGE</h4><p>Understanding how form submissions map to database operations, preventing invalid or duplicate entries, and writing SQL safely.</p></div>
   </div>
-</div>
-  <h2 class="sec" style="margin-top:8mm"><small>05</small>Highlights &amp; Activities</h2>
-  <div class="ach"><b>Apple Developer Academy @ Infinite Learning — Applicant, Cohort 2027</b><div class="meta">Batam, Indonesia · 2026</div><p>Preparing through Apple ecosystem learning paths while finishing my informatics degree.</p></div>
-  <div class="ach"><b>Open-source portfolio on GitHub</b><div class="meta">github.com/sakeeeeeeee · 2026</div><p>Web apps, automation tools, and a tested trading bot with continuous integration.</p></div>
-  <div class="ach"><b>Test-driven &amp; CI workflows</b><div class="meta">Self-directed · 2026</div><p>Added automated test suites and GitHub Actions pipelines to my projects — 18 feature tests on my main web app.</p></div>
-  <div class="page-num">4</div>
-</div>
+  <div class="row2">
+    <div class="card"><h4>SOLUTION</h4><p>A straightforward PHP + MySQL application with prepared statements, server-side validation on every write operation, and clean feedback for each action.</p></div>
+    <div class="card"><h4>RESULT</h4><p>A functional data-management app that became the foundation for my later Laravel work — the same concepts, now with a framework.</p></div>
+  </div>
+  <div class="row2">
+    <div class="card"><h4>WHAT I LEARNED</h4><p>Core CRUD mechanics, SQL injection awareness (prepared statements), and why server-side validation is non-negotiable.</p></div>
+    <div class="card"><h4>NEXT STEPS</h4><p>Rebuild it in Laravel as a comparison exercise to show the same problem solved at a higher abstraction level.</p></div>
+  </div>
+  <div class="foot"><span>github.com/sakeeeeeeee/CRUD-form-sekolah</span><span>farhan-aziz-harahap.vercel.app</span></div>
+</section>
+
+<section class="newpage">
+  <div class="kicker">HIGHLIGHTS &amp; ACTIVITIES</div>
+  <h2 class="sec">Beyond the <span>code.</span></h2>
+  <div class="row2">
+    <div class="card"><h4>APPLE DEVELOPER ACADEMY @ INFINITE LEARNING</h4><p>Applicant, Cohort 2027 — Batam, Indonesia · 2026. Preparing through Apple ecosystem learning paths while finishing my informatics degree.</p></div>
+    <div class="card"><h4>OPEN-SOURCE PORTFOLIO ON GITHUB</h4><p>github.com/sakeeeeeeee · 2026 — web apps, automation tools, and a tested trading bot with continuous integration.</p></div>
+  </div>
+  <div class="row2">
+    <div class="card"><h4>TEST-DRIVEN &amp; CI WORKFLOWS</h4><p>Self-directed · 2026 — automated test suites and GitHub Actions pipelines across my projects, including 18 feature tests on my main web app.</p></div>
+    <div class="card" style="background:#0e1a2b"><h4 style="color:#2dd4a7">FULL INTERACTIVE VERSION</h4><p style="color:#c6d2e2">More screenshots, case studies, and contact — farhan-aziz-harahap.vercel.app</p></div>
+  </div>
+  <div class="kicker" style="margin-top:9mm">LET'S TALK</div>
+  <h2 class="sec">Thanks for <span>reading.</span></h2>
+  <p class="lead">Every project in this portfolio is open source — clone it, read the code, break it. I usually reply to emails within a day.</p>
+  <div class="row2" style="margin-top:5mm">
+    <div class="card"><b style="color:#0e1a2b">Email</b><p>ggfarhan07@gmail.com</p></div>
+    <div class="card"><b style="color:#0e1a2b">GitHub</b><p>github.com/sakeeeeeeee</p></div>
+    <div class="card"><b style="color:#0e1a2b">Portfolio</b><p>farhan-aziz-harahap.vercel.app</p></div>
+  </div>
+  <div class="foot"><span>Farhan Aziz Harahap — Portfolio 2026</span><span>Batam, Indonesia</span></div>
+</section>
 
 </body></html>
